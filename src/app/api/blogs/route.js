@@ -9,12 +9,10 @@ function slugify(str) {
   return str;
 }
 
-
 export async function GET() {
   const supabase = await createClient()
   
   const {data, error}  = await supabase.from('blogs').select();
-
 
   return Response.json({ success: true, data })
 }
@@ -27,10 +25,11 @@ export async function POST(req) {
 
   const slug = slugify(title);
 
-  const { error } = await supabase
+  const {data, error } = await supabase
   .from('blogs')
   .insert({title, content, slug})
 
+  console.log('blogs')
 
   return Response.json({ success: true, data })
 }
@@ -39,7 +38,7 @@ export async function PATCH(req) {
   const supabase = await createClient()
   
   const res = await req.json();
-  const {id, title, content} = res
+  const {title, content, id} = res
 
   const slug = slugify(title);
 

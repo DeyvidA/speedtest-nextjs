@@ -17,6 +17,6 @@ create policy "Enable read access for all users" on public.blogs
     using (true);
 
 CREATE POLICY "Enable insert for authenticated users only" ON public.blogs
-    AS PERMISSIVE FOR INSERT
+    AS PERMISSIVE FOR ALL
     TO authenticated, service_role
     WITH CHECK (true);
