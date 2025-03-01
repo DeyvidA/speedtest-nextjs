@@ -29,6 +29,8 @@ export function LoginForm() {
         method: "POST",
         body: JSON.stringify({ email: value.email, password: value.password }),
       });
+
+      redirect('/blog')
     }
 
     return (

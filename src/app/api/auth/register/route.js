@@ -1,8 +1,4 @@
-import { revalidatePath } from 'next/cache'
-import { redirect } from 'next/navigation'
-
 import { createClient } from '@/helpers/supabase/server'
-
 
 export async function POST(req) {
     const supabase = await createClient()
@@ -15,5 +11,5 @@ export async function POST(req) {
       password
     });
 
-    Response.json({success: true, data})
+  return Response.json({ success: true, data })
 }

@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/card"
 
 import { Input } from "@/components/ui/input"
+import { redirect } from "next/navigation"
 
 export function RegisterForm() {
     const form = useForm()
@@ -30,6 +31,8 @@ export function RegisterForm() {
         method: "POST",
         body: JSON.stringify({ email: value.email, password: value.password }),
       }); 
+
+      redirect('/blog')
     }
 
     return (
